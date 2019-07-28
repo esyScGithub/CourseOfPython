@@ -283,8 +283,10 @@ Python標準のGUIライブラリ。
 
 ## その他のGUIライブラリ
 
-* Kivy
-* PyQt
+* Kivy : 最近注目のライブラリ。[HTML+CSS]と[javascript]のように、レイアウトと動作を分けて記述できる。
+* PyQt : 
+
+<https://hajipro.com/python/python-gui-best>
 
 ---
 
@@ -296,7 +298,9 @@ Python標準のGUIライブラリ。
 
 ---
 
-## Tkinter
+## まずはTkinterの基礎から
+
+--
 
 ライブラリのインポート
 
@@ -326,7 +330,6 @@ if __name__ == "__main__":
 --
 
 ~~~python
-
 def main():
     # Tkinterのルートインスタンスを作成
     root = tk.Tk()
@@ -340,8 +343,8 @@ def main():
 
     # アプリケーション実行
     root.mainloop()
-
 ~~~
+
 --
 
 ラベルを書いてみる
@@ -399,6 +402,60 @@ def main():
 
 データの流れはこんなイメージ
 
+
+--
+
+## クラス定義
+
+クラス化しておくことで、データのやり取りが容易になる。
+
+--
+
+~~~python
+# -*- coding=utf-8 -*-
+
+import tkinter as tk
+
+def main():
+    # Tkinterのルートインスタンスを作成
+    root = tk.Tk()
+
+    # タイトル、ウィンドウサイズを設定
+    root.title('タイムスタンプツール')
+    root.geometry('530x400')
+
+if __name__ == "__main__":
+    main()
+~~~
+
+--
+
+~~~python
+class Apprication(tk.Frame):
+    def __init__(self, master=None):
+
+        # frameオブジェクトのコンストラクタを呼ぶ
+        super().__init__(master)
+        self.pack()
+~~~
+
+--
+
+~~~python
+def main():
+    # Tkinterのルートインスタンスを作成
+    root = tk.Tk()
+
+    # タイトル、ウィンドウサイズを設定
+    root.title('タイムスタンプツール')
+    root.geometry('530x400')
+
+    # 配置位置をルートに設定してアプリケーションインスタンスを作成
+    app = Apprication(master=root)
+
+    # アプリケーション実行
+    app.mainloop()
+~~~
 
 --
 
